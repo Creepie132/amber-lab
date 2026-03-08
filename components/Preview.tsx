@@ -9,7 +9,8 @@ interface PreviewProps {
   theme: Theme;
   onOpenSidebar: () => void;
   onOpenConfig: () => void;
-  isMobile: boolean;
+  showSidebarBtn: boolean;
+  showConfigBtn: boolean;
 }
 
 export default function Preview({
@@ -18,7 +19,8 @@ export default function Preview({
   theme,
   onOpenSidebar,
   onOpenConfig,
-  isMobile,
+  showSidebarBtn,
+  showConfigBtn,
 }: PreviewProps) {
   return (
     <main className="flex-1 flex flex-col h-full overflow-hidden">
@@ -27,7 +29,7 @@ export default function Preview({
         className="flex items-center justify-between px-4 py-3 border-b"
         style={{ borderColor: theme.border, backgroundColor: theme.surface }}
       >
-        {isMobile && (
+        {showSidebarBtn ? (
           <button
             onClick={onOpenSidebar}
             className="p-2 rounded-lg"
@@ -35,9 +37,11 @@ export default function Preview({
           >
             ☰
           </button>
+        ) : (
+          <div className="w-9" />
         )}
         <div className="flex-1 text-center font-medium">{selectedId}</div>
-        {isMobile && (
+        {showConfigBtn ? (
           <button
             onClick={onOpenConfig}
             className="p-2 rounded-lg"
@@ -45,6 +49,8 @@ export default function Preview({
           >
             ⚙️
           </button>
+        ) : (
+          <div className="w-9" />
         )}
       </div>
 
