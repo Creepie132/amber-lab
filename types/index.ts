@@ -48,3 +48,44 @@ export type CatalogCategory = {
   emoji: string;
   items: CatalogItem[];
 };
+
+export type ContentType =
+  | 'text'
+  | 'input'
+  | 'search'
+  | 'chart'
+  | 'stats'
+  | 'list'
+  | 'button-group'
+  | 'image'
+  | 'table';
+
+export type ContentAlign =
+  | 'top-left' | 'top-center' | 'top-right'
+  | 'center-left' | 'center' | 'center-right'
+  | 'bottom-left' | 'bottom-center' | 'bottom-right';
+
+export type Widget = {
+  id: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  title: string;
+  contentType: ContentType;
+  contentAlign: ContentAlign;
+};
+
+export type SidebarSection = {
+  id: string;
+  title: string;
+  icon: string;
+  items: { id: string; label: string }[];
+};
+
+export type PageLayout = {
+  id: string;
+  name: string;
+  widgets: Widget[];
+  sidebarSections: SidebarSection[];
+};

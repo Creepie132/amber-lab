@@ -77,6 +77,39 @@ export default function ConfigPanel({
 
         <div>
           <label className="text-xs font-medium mb-1 block" style={{ color: theme.textMuted }}>
+            Accent Color
+          </label>
+          <input
+            type="color"
+            value={config.accentColor}
+            onChange={(e) => setConfig({ ...config, accentColor: e.target.value })}
+            className="w-full h-10 rounded-lg cursor-pointer"
+          />
+        </div>
+
+        <div>
+          <label className="text-xs font-medium mb-1 block" style={{ color: theme.textMuted }}>
+            Font Family
+          </label>
+          <select
+            value={config.fontFamily}
+            onChange={(e) => setConfig({ ...config, fontFamily: e.target.value })}
+            className="w-full rounded-lg px-3 py-2 text-sm"
+            style={{
+              backgroundColor: theme.surfaceHi,
+              color: theme.textPrimary,
+              border: `1px solid ${theme.border}`,
+            }}
+          >
+            <option value="Inter">Inter</option>
+            <option value="monospace">Mono</option>
+            <option value="Georgia, serif">Serif</option>
+            <option value="system-ui, sans-serif">System UI</option>
+          </select>
+        </div>
+
+        <div>
+          <label className="text-xs font-medium mb-1 block" style={{ color: theme.textMuted }}>
             Border Radius: {config.borderRadius}px
           </label>
           <input
